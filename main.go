@@ -63,7 +63,9 @@ func (bot *BotClient) makeRequest(API string, v interface{}) error {
      }
 
      /* Making the response */
-     res, err := http.Post(fmt.Sprintf("https://api.telegram.org/bot%d:%s/%s", bot.BotID, bot.Token, API), "application/json", bytes.NewBuffer(reqBytes))
+     res, err := http.Post(fmt.Sprintf("https://api.telegram.org/bot%d:%s/%s",
+                              bot.BotID, bot.Token, API), "application/json",
+                              bytes.NewBuffer(reqBytes))
      if err != nil {
           return err
      }
